@@ -1,0 +1,17 @@
+<div>
+  <h1 class="title">Admin</h1>
+  <mat-nav-list>
+    <mat-list-item>
+      <a mat-button [routerLink]="['/login/change']">
+        <mat-icon>lock_outline</mat-icon>
+        <span>Change Password</span>
+      </a>
+    </mat-list-item>
+    <mat-list-item>
+      <a mat-button (click)="logout()" [routerLink]="['/login']">
+        <mat-icon>exit_to_app</mat-icon>
+        <span>Logout</span>
+      </a>
+    </mat-list-item>
+  </mat-nav-list>
+</div>

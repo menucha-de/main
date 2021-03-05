@@ -1,0 +1,53 @@
+<div fxLayout="column" fxLayoutGap="10px">
+
+</div>
+<div fxLayout="row wrap" fxLayoutGap="5px grid" fxFlexFill>
+    <div *ngFor="let item of updates ">
+        <button mat-raised-button class="btn" (click)="update(item)">
+            <div fxLayout="row" fxLayoutAlign="space-between center">
+                <mat-icon fxFlex="10">{{item.icon}}</mat-icon>
+                <div fxLayout="column" fxLayoutAlign="center stretch" class="stretch">
+                    <span class="about">{{item.label}}</span>
+                    <div class="subtitle">Update app</div>
+                </div>
+            </div>
+        </button>
+    </div>
+    <div *ngIf="updates != undefined && (updates.length > 1 || installingAll)" style="width: 100%">
+        <button mat-raised-button style="width: 100%" (click)="actionBarEnabled && update()">
+            <app-action-bar icon="{{ actionBarIcon }}" title="{{ actionBarTitle }}" subtitle="{{ actionBarSubtitle }}">
+            </app-action-bar>
+        </button>
+    </div>
+</div>
+
+<!-- <div style="margin-top: 2em;">
+    <div>
+        <span class="title">Available plugins</span>
+    </div>
+    <div fxLayout="row wrap" fxLayoutGap="5px grid" fxFlexFill>
+        <div *ngFor="let item of available$ | async ">
+            <button mat-raised-button class="btn" (click)="update(item)">
+                <div fxLayout="row" fxLayoutAlign="space-between center">
+                    <mat-icon fxFlex="10">{{item.icon}}</mat-icon>
+                    <div fxLayout="column" fxLayoutAlign="center stretch" class="stretch">
+                        <span class="about">{{item.label}}</span>
+                        <div class="subtitle">Install app</div>
+                    </div>
+                </div>
+            </button>
+        </div>
+        <div *ngIf="!available$">Currently no plugins available</div>
+    </div>
+</div> -->
+
+<!-- <div fxLayout="column" fxLayoutGap="3%">
+    <button mat-raised-button>
+        <app-action-bar title="Download and install" icon="save_alt"
+            subtitle="Download and install the update via browser connection" (click)="download()"></app-action-bar>
+    </button>
+    <button mat-raised-button>
+        <app-action-bar title="Install in background" icon="system_update_alt"
+            subtitle="Download and install the update directly onto the device" (click)="background()"></app-action-bar>
+    </button>
+</div> -->

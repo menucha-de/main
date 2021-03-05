@@ -1,0 +1,11 @@
+<div class="maincontent" fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="30px" fxLayoutAlign="center">
+  <div fxFlex="50%" fxLayout="column" fxLayoutGap="10px">
+    <app-action-bar link="about" title="About" icon="info_outline" subtitle="Device and System specifications"></app-action-bar>
+    <app-action-bar link="updates" title="Updates" icon="save_alt" subtitle="System updates"></app-action-bar>
+    <app-action-bar link="reset" title="Reset" icon="settings_backup_restore" subtitle="Reset apps, network or system"></app-action-bar>
+    <app-action-bar link="support" title="Support" icon="help_outline" subtitle="Contact information"></app-action-bar>
+  </div>
+  <div fxFlex="50%">
+    <router-outlet></router-outlet>
+  </div>
+</div>

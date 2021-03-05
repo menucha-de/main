@@ -1,0 +1,22 @@
+<mat-card>
+  <mat-card-title>Proxy Settings</mat-card-title>
+  <form *ngIf="proxyConfig$ | async" [formGroup]="form">
+    <mat-form-field>
+      <mat-label>HTTP Proxy</mat-label>
+      <input matInput formControlName="httpProxy" placeholder="HTTP Proxy">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>HTTPS Proxy</mat-label>
+      <input matInput formControlName="httpsProxy" placeholder="HTTPS Proxy">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>No Proxy</mat-label>
+      <input matInput formControlName="noProxy" placeholder="No Proxy">
+    </mat-form-field>
+    <!-- <button mat-button type="submit">Save</button> -->
+  </form>
+</mat-card>
+<div fxLayout="row" fxLayoutGap="14%" fxLayoutAlign="space-between space-between" class="spaceafter">
+  <button mat-raised-button fxFlex="43%" (click)="save(form.value)">Apply</button>
+  <button mat-raised-button fxFlex="43%" (click)="reset()">Cancel</button>
+</div>

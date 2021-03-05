@@ -1,0 +1,7 @@
+{
+  "/": {
+    "target": "http://10.10.10.10/",
+    "secure": false,
+    "changeOrign": true
+  }
+}

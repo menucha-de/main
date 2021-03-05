@@ -1,0 +1,48 @@
+.title-center {
+  margin: 0 auto;
+}
+
+mat-card {
+  max-width: 400px;
+  margin: 0 auto;
+  flex: 1;
+}
+
+.large {
+  font-size: 50px;
+}
+.small {
+  font-size: 32px;
+  width: 32px;
+  height: 32px;
+}
+mat-form-field {
+  flex: 1;
+}
+
+// .login {
+//     display: flex;
+//     height: 100%;
+//     align-items: center;
+// }
+
+
+button:hover {
+  background: #dadfe1;
+}
+.page {
+  display: flex;
+  height: 100%;
+  flex-flow: column;
+}
+.content {
+  flex-grow: 1;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+.login {
+  display: flex;
+  align-items: center;
+}

@@ -1,0 +1,8 @@
+#!/usr/bin/make -f
+ 
+%:
+	dh $@
+
+override_dh_install:
+	cd src/webapp; npm install; node_modules/@angular/cli/bin/ng build --prod --no-progress --output-path=www
+	dh_install

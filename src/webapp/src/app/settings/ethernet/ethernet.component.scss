@@ -1,0 +1,20 @@
+@use '../../styles/_styles.scss';
+
+.label{
+    width: 170px;
+}
+  
+.spaceafter{ 
+    margin-bottom: 20px;
+}
+.fill{
+    width: 100%;
+}
+input:read-only {
+    color: #99A4AE;
+  }
+
+mat-panel-title {
+    font-size: 20px;
+    font-weight: 500;
+}

@@ -1,0 +1,54 @@
+  <h1 mat-dialog-title>Device Information</h1>
+  <mat-dialog-content>
+    <div class="title">General</div>
+    <div>
+      <div class="label">Device name:</div>
+      <div>{{ sysinfo.hostname }}</div>
+    </div>
+    <div>
+      <div class="label">IPv4:</div>
+      <div>{{ sysinfo.ipv4 }}</div>
+    </div>
+    <div>
+      <div class="label">IPv6:</div>
+      <div>{{ sysinfo.ipv6 }}</div>
+    </div>
+    <div class="title">Device</div>
+    <div>
+      <div class="label">Type:</div>
+      <div>{{ sysinfo.deviceType }}</div>
+    </div>
+    <div>
+      <div class="label">Serial:</div>
+      <div>{{ sysinfo.serial }}</div>
+    </div>
+    <div>
+      <div class="label">Processor:</div>
+      <div>{{ sysinfo.processor }}</div>
+    </div>
+    <div>
+      <div class="label">Memory:</div>
+      <div>Total: {{ sysinfo.memTotal }} MB, Free: {{ sysinfo.memFree }} MB</div>
+    </div>
+    <div>
+      <div class="label">Space:</div>
+      <div>Total: {{ sysinfo.spaceTotal }} MB, Free: {{ sysinfo.spaceFree }} MB</div>
+    </div>
+    <div class="title">System</div>
+    <div>
+      <div class="label">System:</div>
+      <div>{{ sysinfo.os }}</div>
+    </div>
+    <div>
+      <div class="label">Version:</div>
+      <div>{{ sysinfo.version }}</div>
+    </div>
+    <div>
+      <div class="label">Kernel:</div>
+      <div>{{ sysinfo.kernel }}</div>
+    </div>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-raised-button (click)="download()">Download</button>
+  </mat-dialog-actions>
+  <a #downloadEl hidden [href]="json" download="info.json"></a>

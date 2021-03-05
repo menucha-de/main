@@ -1,0 +1,39 @@
+  <h1 class="title">Settings</h1>
+  <mat-nav-list>
+    <mat-list-item>
+      <button mat-button (click)="navigate(['main', 'settings', 'network'])">
+        <mat-icon>settings_ethernet</mat-icon>
+        Network
+      </button>
+    </mat-list-item>
+    <mat-list-item>
+      <button mat-button (click)="navigate(['main', 'settings', 'datetime'])">
+        <mat-icon>schedule</mat-icon>
+        Date and Time
+      </button>
+    </mat-list-item>
+    <mat-list-item>
+      <button mat-button disabled (click)="navigate(['main', 'settings', 'bluetooth'])" [class.disabled]="true">
+        <mat-icon>bluetooth</mat-icon>
+        Bluetooth
+      </button>
+    </mat-list-item>
+    <mat-list-item>
+      <button mat-button disabled (click)="navigate(['main', 'settings', 'location'])" [class.disabled]="true">
+        <mat-icon>room</mat-icon>
+        Location
+      </button>
+    </mat-list-item>
+    <mat-list-item>
+      <button mat-button (click)="navigate(['main', 'system'])">
+        <mat-icon>laptop_mac</mat-icon>
+        System
+      </button>
+    </mat-list-item>
+    <mat-list-item>
+      <button mat-button (click)="navigate(['main', 'apps'])">
+        <mat-icon>apps</mat-icon>
+        Apps
+      </button>
+    </mat-list-item>
+  </mat-nav-list>

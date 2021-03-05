@@ -1,0 +1,14 @@
+mat-dialog-content > {
+  div {
+    display: flex;
+    div.label {
+      width: 100px;
+    }
+  }
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 500;
+  margin: 0.5em 0;
+}

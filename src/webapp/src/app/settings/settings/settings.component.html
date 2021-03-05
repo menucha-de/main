@@ -1,0 +1,14 @@
+<div class="maincontent" fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="5%" fxLayoutAlign="center">
+  <div fxFlex="48%">
+    <app-action-bar link="network" title="Network" icon="perm_data_setting" subtitle="Ethernet, WiFi, Proxy, VPN">
+    </app-action-bar>
+    <app-action-bar link="datetime" title="Date and Time" icon="schedule" [subtitle]="date"></app-action-bar>
+    <app-action-bar link="bluetooth" title="Bluetooth" icon="bluetooth" [disabled]="true"></app-action-bar>
+    <app-action-bar link="location" title="Location" icon="room" [disabled]="true"></app-action-bar>
+    <app-action-bar link="/main/system" title="System" icon="laptop_mac"></app-action-bar>
+    <app-action-bar link="/main/apps" title="Apps" icon="apps"></app-action-bar>
+  </div>
+  <div fxFlex="47%">
+    <router-outlet></router-outlet>
+  </div>
+</div>

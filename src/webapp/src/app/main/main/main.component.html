@@ -1,0 +1,40 @@
+<div class="page">
+  <mat-toolbar>
+    <div fxLayout="row" fxLayoutAlign="start center">
+      <button mat-button class="left" (click)="showApps()">
+        <i class="material-icons">apps</i>
+      </button>
+    </div>
+
+    <app-breadcrumb [rootLabel]="hostname$ | async" class="breadcrumb"></app-breadcrumb>
+
+    <div fxLayout="row" fxLayoutAlign="end center">
+      <a mat-button [routerLink]="['system', 'about']" (click)="right.close()">
+        <i class="material-icons">info_outline</i>
+      </a>
+      <a mat-button [routerLink]="['system', 'support']" (click)="right.close()">
+        <i class="material-icons">help_outline</i>
+      </a>
+      <button mat-button (click)="showMenu('notifications')">
+        <i class="material-icons" [matBadgeHidden]="read || isEmpty()" matBadge="!" matBadgePosition="before"
+          matBadgeColor="warn">notifications_none</i>
+      </button>
+      <a mat-button (click)="showMenu('settings')" class="btn">
+        <i class="material-icons">settings</i>
+      </a>
+      <button mat-button (click)="showMenu('admin')" class="btn">
+        <i class="material-icons">account_circle</i>
+      </button>
+    </div>
+  </mat-toolbar>
+  <mat-sidenav-container class="content" [hasBackdrop]="sidebar != 'notifications'">
+    <mat-sidenav #right position="end" [disableClose]="sidebar == 'notifications'">
+      <app-admin *ngIf="sidebar == 'admin'"></app-admin>
+      <app-setting-menu (navigated)="right.close()" *ngIf="sidebar == 'settings'"></app-setting-menu>
+      <app-notification [results]="results" *ngIf="(sidebar == 'notifications')"></app-notification>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

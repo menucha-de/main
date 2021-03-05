@@ -1,0 +1,36 @@
+<div fxLayout="column" fxLayoutGap="10px" *ngIf="appInfo$ | async as appInfo">
+  <ng-container *ngIf="appInfo.installed; else showInstall">
+    <mat-card>
+      <mat-card-title>
+        <div fxLayout="row" fxLayoutAlign="space-between center">
+          <label>Virtual Private Network</label>
+          <mat-slide-toggle [checked]="isEnabled$ | async" (change)="setEnabled($event.checked)" name="enabled" [disabled]="!(hasConfig$ | async)">
+          </mat-slide-toggle>
+        </div>
+      </mat-card-title>
+      <mat-card-content>IP Address: {{ address$ | async }}</mat-card-content>
+    </mat-card>
+    <mat-card class="action">
+      <app-action-bar title="Upload VPN config" (click)="upload()" icon="publish"
+        subtitle="Upload OpenVPN Configuration file (*.ovpn)">
+      </app-action-bar>
+      <mat-spinner [diameter]="30" *ngIf="uploading$ | async"></mat-spinner>
+    </mat-card>
+    <mat-card class="action">
+      <app-action-bar title="Reset VPN config" (click)="reset()" icon="delete"
+        subtitle="Delete OpenVPN Configuration file"></app-action-bar>
+    </mat-card>
+    <input #file [hidden]="true" type="file" accept="*.ovpn" (change)="handleUpload($event.target.files)">
+    <mat-card class="action">
+      <app-action-bar title="Download Log" icon="get_app" subtitle="Download OpenVPN Connection Log" (click)="downloadLog(downloadLogEl)"></app-action-bar>
+      <a hidden #downloadLogEl href="/vpn/rest/default/log" download="openvpn.log"></a>
+    </mat-card>
+  </ng-container>
+  <ng-template #showInstall>
+    <mat-card class="action">
+      <app-action-bar title="Enable VPN" (click)="install()" icon="power_settings_new"
+        subtitle="Install OpenVPN Client"></app-action-bar>
+      <mat-spinner [diameter]="30" *ngIf="installing$ | async"></mat-spinner>
+    </mat-card>
+  </ng-template>
+</div>

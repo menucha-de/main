@@ -1,0 +1,39 @@
+<div #notification class="notification" [style.width.px]="width$ | async">
+  <div [class.resizing]="resizing">
+    <h1 class="title">Notifications</h1>
+    <a class="title1" (click)="toggleLog()">{{ showLog ? 'Hide full log' : 'Show full log' }}</a>
+    <div>
+      <ul class="notification-menu">
+        <div fxLayout="row" fxLayoutAlign="space-between center" (click)="delete($event,'ALL')">
+          <span>Delete all</span>
+          <button mat-button>
+            <i class="material-icons">close</i>
+          </button>
+        </div>
+
+        <li *ngFor="let item of results | keyvalue; let i = index">
+          <ng-container>
+            <mat-divider></mat-divider>
+
+            <div fxLayout="row" fxLayoutAlign="space-between center" (click)="delete($event,item.key)">{{item.key}}
+              <button mat-button>
+                <i class="material-icons">close</i>
+              </button></div>
+            <div *ngFor="let x of item.value | keyvalue : asIsOrder; let i = index">
+
+              <p [class.error]="x.value.status==='FAILURE'" [class.success]="x.value.status==='SUCCESS'">
+                {{x.key}} {{x.value.text}}
+              </p>
+
+            </div>
+          </ng-container>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div [hidden]="!showLog" #log class="logs" [style.height.px]="height$ | async">
+    <div #resizerlog class="resize-handle-log"></div>
+    <app-logs [class.resizing]="resizing" *ngIf="showLog"></app-logs>
+  </div>
+  <div #resizerleft class="resize-handle-left"></div>
+</div>

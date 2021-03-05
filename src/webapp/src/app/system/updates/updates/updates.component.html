@@ -1,0 +1,36 @@
+<div fxLayout="column" fxLayoutGap="10px" *ngIf="sysinfo$ | async as info">
+    <span class="title">System specification</span>
+    <div fxLayout="row" fxLayoutGap="14%">
+        <label>System:</label>
+        <mat-card-subtitle>{{ info.os }}</mat-card-subtitle>
+    </div>
+    <div fxLayout="row" fxLayoutGap="14%">
+        <label>Version:</label>
+        <mat-card-subtitle>{{ info.version }}</mat-card-subtitle>
+    </div>
+    <div fxLayout="row" fxLayoutGap="14%">
+        <label>Kernel:</label>
+        <mat-card-subtitle>{{ info.kernel }}</mat-card-subtitle>
+    </div>
+    <router-outlet></router-outlet>
+    <button mat-raised-button
+        *ngIf="!( router.url.includes('install') || router.url.includes('restart') )">
+        <app-action-bar icon="{{ actionBarIcon }}" title="{{ actionBarTitle }}" subtitle="{{ actionBarSubtitle }}"
+            (click)="actionBarEnabled && checkUpdates()"></app-action-bar>
+    </button>
+    <!-- <button mat-raised-button>
+        <app-action-bar title="View update history" icon="history" subtitle="List updates installed on your device"></app-action-bar>
+    </button> -->
+    <!-- <span class="title">Update options</span>
+    <div fxLayout="row" fxLayoutGap="14%">
+        <label class="subtitle">automatically check for updates</label>
+        <mat-slide-toggle [(ngModel)]="autoCheckUpdates"> </mat-slide-toggle>
+    </div>
+    <div fxLayout="row" fxLayoutGap="14%">
+        <label class="subtitle">automatically install updates</label>
+        <mat-slide-toggle [(ngModel)]="autoInstallUpdates"> </mat-slide-toggle>
+    </div>
+    <button mat-raised-button *ngIf="autoInstallUpdates">
+        <app-action-bar title="Schedule update time" icon="today" subtitle="Currently: immediately"></app-action-bar>
+    </button> -->
+</div>

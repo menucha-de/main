@@ -1,0 +1,49 @@
+<div fxLayout="column" fxLayoutGap="5px" *ngIf="sysinfo$ | async as sysinfo">
+  <span class="title">General</span>
+  <div fxLayout="row" fxLayoutGap="14%">
+    <label>Device name:</label>
+    <mat-card-subtitle>{{ sysinfo.hostname }}</mat-card-subtitle>
+  </div>
+  <div fxLayout="row" fxLayoutGap="14%">
+    <label>IPv4:</label>
+    <mat-card-subtitle>{{ sysinfo.ipv4 }}</mat-card-subtitle>
+  </div>
+  <div fxLayout="row" fxLayoutGap="14%">
+    <label>IPv6:</label>
+    <mat-card-subtitle>{{ sysinfo.ipv6 }}</mat-card-subtitle>
+  </div>
+  <span class="title">Device specifications</span>
+  <div fxLayout="row" fxLayoutGap="14%">
+    <label>Type:</label>
+    <mat-card-subtitle>{{ sysinfo.deviceType }}</mat-card-subtitle>
+  </div>
+  <div fxLayout="row" fxLayoutGap="14%">
+    <label>Serial:</label>
+    <mat-card-subtitle>{{ sysinfo.serial }}</mat-card-subtitle>
+  </div>
+  <div fxLayout="row" fxLayoutGap="14%">
+    <label>Processor:</label>
+    <mat-card-subtitle>{{ sysinfo.processor }}</mat-card-subtitle>
+  </div>
+  <div fxLayout="row" fxLayoutGap="14%">
+    <label>Memory:</label>
+    <mat-card-subtitle>Total: {{ sysinfo.memTotal }} MB, Free: {{ sysinfo.memFree }} MB</mat-card-subtitle>
+  </div>
+  <div fxLayout="row" fxLayoutGap="14%">
+    <label>Space:</label>
+    <mat-card-subtitle>Total: {{ sysinfo.spaceTotal }} MB, Free: {{ sysinfo.spaceFree }} MB</mat-card-subtitle>
+  </div>
+  <span class="title">System specifications</span>
+  <div fxLayout="row" fxLayoutGap="14%">
+    <label>System:</label>
+    <mat-card-subtitle>{{ sysinfo.os }}</mat-card-subtitle>
+  </div>
+  <div fxLayout="row" fxLayoutGap="14%">
+    <label>Version:</label>
+    <mat-card-subtitle>{{ sysinfo.version }}</mat-card-subtitle>
+  </div>
+  <div fxLayout="row" fxLayoutGap="14%">
+    <label>Kernel:</label>
+    <mat-card-subtitle>{{ sysinfo.kernel }}</mat-card-subtitle>
+  </div>
+</div>

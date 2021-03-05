@@ -1,0 +1,9 @@
+<div fxLayout="column" fxLayoutGap="3%">
+  <app-action-bar title="Network reset" icon="settings_backup_restore"
+    subtitle="This will reinitialize all your network adapters, and set them back to their original settings." disabled></app-action-bar>
+  <app-action-bar title="Reset apps settings" icon="restore"
+    subtitle="This will reset the settings of every installed app back to their default values." disabled></app-action-bar>
+  <app-action-bar title="System reset" icon="replay"
+    subtitle="This will remove all installed apps, and reset  all settings back to factory default." disabled></app-action-bar>
+  <app-action-bar title="Power Off" icon="power_settings_new" subtitle="Power off the device" (click)="setState()"></app-action-bar>
+</div>

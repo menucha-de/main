@@ -1,0 +1,177 @@
+@import 'material-icons/iconfont/material-icons.scss';
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@import "~@angular/material/theming";
+// Plus imports for other components in your app.
+
+@import 'typeface-roboto/index.css';
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+
+$angular-material-v1-primary: mat-palette($mat-blue-grey, 600, 400, 800);
+$angular-material-v1-accent: mat-palette($mat-teal, 800, 900, 500);
+$angular-material-v1-warn: mat-palette($mat-red, 900, 500, A700);
+
+// Create the theme object (a Sass map containing all of the palettes).
+// If you prefer a dark theme, switch to mat-dark-theme and it will switch over to your darker hues
+$my-dark-theme-background: (
+  status-bar: white,
+  app-bar: white,
+  tool-bar: white,
+  background: white,
+  hover: white,
+  card: white,
+  dialog: white,
+  disabled-button: $white-12-opacity,
+  raised-button: white,
+  focused-button: #dadfe1,
+  selected-button: #dadfe1,
+  selected-disabled-button: #dadfe1,
+  disabled-button-toggle: black,
+  unselected-chip: #dadfe1,
+  disabled-list-option: black,
+);
+$my-dark-theme-foreground: (
+  base: white,
+  divider: #152926,
+  dividers: $white-12-opacity,
+  disabled: rgba(white, 0.3),
+  disabled-button: rgba(white, 0.3),
+  disabled-text: rgba(white, 0.3),
+  hint-text: rgba(white, 0.3),
+  secondary-text: #99a4ae,
+  icon: white,
+  icons: white,
+  text: #152926,
+  slider-min: #152826,
+  slider-off: #152826,
+  slider-off-active: #152826,
+);
+
+@function create-wonky-theme($primary, $accent, $warn: mat-palette($mat-red)) {
+  @return (
+    primary: $primary,
+    accent: $accent,
+    warn: $warn,
+    //is-dark: false,
+    foreground: $my-dark-theme-foreground,
+    background: $my-dark-theme-background
+  );
+}
+
+// The rest of this is like a normal theme.scss file. The only difference being that we use create-wonky-theme instead of mat-light-theme
+$custom-theme-primary: mat-palette($mat-blue-grey, 600, 400, 800);
+$custom-theme-accent: mat-palette($mat-teal, 800, 900, 500);
+$custom-theme-warn: mat-palette($mat-red);
+
+$custom-theme: create-wonky-theme(
+  $custom-theme-primary,
+  $custom-theme-accent,
+  $custom-theme-warn
+);
+$angular-material-v1-theme: create-wonky-theme(
+  $custom-theme-primary,
+  $custom-theme-accent,
+  $custom-theme-warn
+);
+.mat-slide-toggle .mat-slide-toggle-thumb-container{
+  top:5px;
+  left:5px;
+}
+.mat-slide-toggle.mat-checked .mat-slide-toggle-thumb-container {
+  transform: translate3d(35px,0,0) !important;
+}
+.mat-slide-toggle .mat-slide-toggle-bar {
+  background-color:#152826;//Your color
+  width: 65px;
+    height:31px ;
+    border-radius: 20px;
+}
+
+.mat-slide-toggle .mat-slide-toggle-thumb {
+  background-color:white
+}
+.mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {
+  background-color: #ffcd00;
+  
+}
+.mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
+  background-color:white
+}
+.toaster{
+  border: .15em solid #e5e5e5;
+    border-radius: .75em !important;
+    box-shadow: 0 1px 1px 1px rgba(0,0,0,.25) !important;
+    padding: .25em .5em;
+    background: rgba(255,255,255,.9) !important;
+    width: 900px !important;
+    max-width: none !important;
+    color:#152826 !important
+  }
+ 
+.mat-badge-content{
+  top:10px !important;
+  left :-4px !important;
+}
+.mat-button-disabled{
+  color:#99a4ae !important;
+}
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($angular-material-v1-theme);
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+  background-color: #eceff5;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  
+}
+.mat-form-field{
+  font-size: 18px ;
+}
+.mat-button-base {
+  font-size: 18px;
+}
+
+.mat-button:hover {
+  background: #dadfe1;
+}
+.mat-raised-button:hover {
+  background: #dadfe1;
+}
+.mat-raised-button:active {
+  background: #dadfe1;
+}
+.as-split-gutter {
+  height: revert !important;
+  background-color:rgba(0, 0, 0, 0.2) !important;
+}
+
+
+
+.as-split {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+}
+.hack-iframe-hider {
+  background: rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}

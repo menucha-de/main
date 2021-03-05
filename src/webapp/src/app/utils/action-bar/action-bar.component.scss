@@ -1,0 +1,47 @@
+.about {
+    font-size: 20px;
+    font-weight: 500;
+    text-align: left;
+}
+.mat-button {
+    width: 100%;
+}
+
+.mat-button-disabled {
+    color: #99A4AE !important;
+}
+.mat-button:focus {
+    background-color: white;
+   // box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+.disabled{
+    cursor: not-allowed;
+}
+.selected.mat-button {
+    background-color: white;
+}
+
+.material-icons {
+    font-size: 34px;
+   
+}
+.material-icons.disabled {
+    color:#99A4AE;
+   
+}
+
+.subtitle{
+ font-size: 14px;
+ color:#99a4ae;
+ line-height: 18px;
+ white-space:normal;
+ box-sizing: border-box;
+ text-align: left;
+ overflow: hidden;
+ margin-bottom: 3px;
+ padding-bottom: 3px;
+}
+
+.stretch{
+    min-height: 68px 
+}

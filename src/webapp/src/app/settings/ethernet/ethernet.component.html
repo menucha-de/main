@@ -1,0 +1,86 @@
+<div fxLayout="column" fxLayoutGap="10px">
+  <mat-card>
+    <mat-card-title>Details</mat-card-title>
+    <div fxLayout="row" fxLayoutGap="14%">
+      <div class="label">Hostname:</div>
+      <div>{{ model.hostname }}</div>
+    </div>
+    <div fxLayout="row" fxLayoutGap="14%">
+      <div class="label">Hardware-Address (MAC):</div>
+      <div>{{ model.mac }}</div>
+    </div>
+  </mat-card>
+  <mat-accordion>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>IPv4</mat-panel-title>
+        <mat-panel-description>{{ model.ipv4Address }}</mat-panel-description>
+      </mat-expansion-panel-header>
+      <form>
+        <div>
+          <mat-form-field class="fill">
+            <mat-label>Mode</mat-label>
+            <mat-select [(ngModel)]="model.ipv4Mode" name="ipv4Mode">
+              <mat-option *ngFor="let key of modeOptions" [value]="modes[key]">{{ key }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <div fxLayout="column" *ngIf="model.ipv4Mode !== modes.Disabled">
+            <mat-form-field>
+              <input matInput [(ngModel)]="model.ipv4Address" name="ipv4Address"
+                [readonly]="model.ipv4Mode === modes.DHCP" placeholder="IP Address">
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput [(ngModel)]="model.ipv4Gateway" name="gateway" [readonly]="model.ipv4Mode === modes.DHCP"
+                placeholder="Gateway">
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput [(ngModel)]="model.ipv4Nameserver" name="nameserver" [readonly]="model.ipv4Mode === modes.DHCP"
+                placeholder="NameServer">
+            </mat-form-field>
+          </div>
+        </div>
+      </form>
+    </mat-expansion-panel>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>IPv6</mat-panel-title>
+        <mat-panel-description>{{ ipv6Address }}</mat-panel-description>
+      </mat-expansion-panel-header>
+      <form>
+        <div>
+          <mat-form-field class="fill">
+            <mat-label>Mode</mat-label>
+            <mat-select [(ngModel)]="model.ipv6Mode" name="ipv6Mode">
+              <mat-option [value]="modes.LinkLocalOnly">LinkLocalOnly</mat-option>
+              <mat-option [value]="modes.Static">Static</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <div fxLayout="column">
+            <mat-form-field>
+              <input matInput readonly [(ngModel)]="model.ipv6LL" name="ipv6LL" placeholder="LL Address">
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput [(ngModel)]="model.ipv6ULA" name="ipv6ULA" placeholder="ULA Address">
+            </mat-form-field>
+            <ng-template [ngIf]="model.ipv6Mode === modes.Static">
+              <mat-form-field>
+                <input matInput [(ngModel)]="model.ipv6Address" name="ipv6Address" placeholder="Address">
+              </mat-form-field>
+              <mat-form-field>
+                <input matInput [(ngModel)]="model.ipv6Gateway" name="gateway" placeholder="Gateway">
+              </mat-form-field>
+              <mat-form-field>
+                <input matInput placeholder="Nameserver" [(ngModel)]="model.ipv6Nameserver" name="nameserver">
+              </mat-form-field>
+            </ng-template>
+          </div>
+
+        </div>
+      </form>
+    </mat-expansion-panel>
+  </mat-accordion>
+  <div fxLayout="row" fxLayoutGap="14%" fxLayoutAlign="space-between space-between" class="spaceafter">
+    <button mat-raised-button fxFlex="43%" (click)="save()">Apply</button>
+    <button mat-raised-button fxFlex="43%" (click)="reset()">Cancel</button>
+  </div>
+</div>

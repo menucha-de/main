@@ -1,0 +1,12 @@
+<div class="maincontent" fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="30px" fxLayoutAlign="center">
+  <div fxFlex="50%" fxLayout="column" fxLayoutGap="10px">
+    <app-action-bar [selected]="selectedLink === 'ethernet'" link="{{ethernet}}" title="Ethernet" icon="settings_ethernet" [subtitle]="ethernetSubtitle" (click)="onSelect('ethernet')"></app-action-bar>
+    <app-action-bar [selected]="selectedLink === 'wifi'" link="wifi" title="WiFi" icon="wifi" subtitle="Not connected" disabled="true"></app-action-bar>
+    <app-action-bar [selected]="selectedLink === 'gsm'" link="gsm" title="GSM" icon="signal_cellular_alt" subtitle="Not connected" disabled="true"></app-action-bar>
+    <app-action-bar [selected]="selectedLink === 'proxy'" link="proxy" title="Proxy" icon="language" [subtitle]="proxySub$ | async"></app-action-bar>
+    <app-action-bar [selected]="selectedLink === 'vpn'" link="vpn" title="VPN" icon="verified_user" [subtitle]="vpnSub$ | async" (click)="onSelect('vpn')"></app-action-bar>
+  </div>
+  <div fxFlex="50%">
+    <router-outlet></router-outlet>
+  </div>
+</div>

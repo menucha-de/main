@@ -1,0 +1,43 @@
+<div>
+  <mat-card>
+    <mat-card-title>Date and Time</mat-card-title>
+    <div fxLayout="row" fxLayoutAlign="space-between center">
+      <label>Use NTP</label>
+      <mat-slide-toggle [(ngModel)]="model.ntp" (change)="setNtp($event)" name="ntp"> </mat-slide-toggle>
+    </div>
+  
+    <div fxLayout="row" fxLayoutAlign="space-between center">
+      <label>NTP Server List</label>
+      <mat-form-field>
+        <input matInput [(ngModel)]="model.ntpserver" (change)="onChangeServer($event)">
+      </mat-form-field>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="space-between center">
+      <label>Last NTP Sync</label>
+      <mat-form-field>
+        <input matInput [(ngModel)]="model.lastsync" readonly>
+      </mat-form-field>
+    </div>
+    <mat-divider></mat-divider>
+    <div fxLayout="row" fxLayoutAlign="space-between center">
+      <label>Time Zone</label>
+      <mat-form-field class="fill">
+        <input matInput [(ngModel)]="model.timezone" readonly>
+      </mat-form-field>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="space-between center">
+      <label>Time</label>
+      <mat-form-field>
+        <input matInput [(ngModel)]="model.time" [readonly]="model.ntp" (focus)="onFocus('time')" (blur)="onFocusOut()"
+          name="time">
+      </mat-form-field>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="space-between center">
+      <label>Date</label>
+      <mat-form-field>
+        <input matInput [(ngModel)]="model.date" name="date" (focus)="onFocus('date')" (blur)="onFocusOut()"
+          [readonly]="model.ntp">
+      </mat-form-field>
+    </div>
+  </mat-card>
+</div>

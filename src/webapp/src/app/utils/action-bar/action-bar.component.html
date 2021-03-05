@@ -1,0 +1,12 @@
+<button mat-button [routerLink]="link" [disabled]="disabled" [class.selected]="selected" [class.disabled]="disabled">
+  <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="2%">
+
+    <i class="material-icons" [class.disabled]="disabled">{{ icon }}</i>
+
+    <div fxLayout="column" fxLayoutAlign="center stretch" fxFlex="98%" class="stretch">
+      <span class="about">{{title}}</span>
+      <div class="subtitle" *ngIf="subtitle != undefined">{{subtitle}}</div>
+    </div>
+  </div>
+
+</button>
