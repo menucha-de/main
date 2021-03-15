@@ -1,8 +1,8 @@
 Source: main
-Maintainer: peraMIC <opensource@peraMIC.io>
+Maintainer: Menucha Team <info@menucha.de>
 Build-Depends: debhelper, nodejs:native
  
 Package: main
 Architecture: all
 Depends: ${shlibs:Depends}
-Description: MICA main service
+Description: Runtime main service
