@@ -3,9 +3,6 @@ name: Build app
 on:
   workflow_dispatch:
     inputs:
-      arch:
-        description: 'Architecture'
-        default: 'amd64 armhf'
       dist:
         description: 'Distribution'
         default: 'buster'
@@ -21,7 +18,7 @@ jobs:
         id: build
         uses: menucha-de/actions/build@v1
         with:
-          arch: ${{ github.event.inputs.arch }}
+          arch: all
           dist: ${{ github.event.inputs.dist }}
           script: ./mkapp
           token: ${{ secrets.ACTIONS }}
